@@ -29,7 +29,7 @@ CREATE TABLE users (
 );
 ```
 
-Refer to the [pgx_ulid](https://github.com/pksunkara/pgx_ulid) repository for more details on how to use the extension.
+> Refer to the [pgx_ulid](https://github.com/pksunkara/pgx_ulid) repository for more details on how to use the extension.
 
 ## Supported tags
 
