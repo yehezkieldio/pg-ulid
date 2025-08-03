@@ -13,7 +13,7 @@ docker pull ghcr.io/yehezkieldio/pg-ulid:latest
 docker run --name pg-ulid -e POSTGRES_PASSWORD=secret -p 5432:5432 -d ghcr.io/yehezkieldio/pg-ulid
 ```
 
-Connect with any SQL client and:
+## Usage
 
 ```sql
 -- Enable the pgx_ulid extension
