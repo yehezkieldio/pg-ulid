@@ -1,7 +1,7 @@
 
 ---
 
-A lightweight PostgreSQL image that ships [`pgx_ulid`](https://github.com/pksunkara/pgx_ulid) extension pre-installed, so you can generate **ULIDs** (Universally-Unique Lexicographically-Sortable Identifiers) immediately after `docker run`.
+PostgreSQL image with the [`pgx_ulid`](https://github.com/pksunkara/pgx_ulid) extension pre-installed.
 
 ## Quick start
 
@@ -29,16 +29,14 @@ CREATE TABLE users (
 );
 ```
 
+Refer to the [pgx_ulid](https://github.com/pksunkara/pgx_ulid) repository for more details on how to use the extension.
+
 ## Supported tags
 
 | Tag        | PostgreSQL | pgx_ulid |
 |------------|------------|----------|
 | `latest`   | 17         | 0.2.0    |
 
-
-## Configuration
-
-For advanced options (monotonicity, entropy size, etc.) refer to [pgx_ulid](https://github.com/pksunkara/pgx_ulid).
 
 ## Test suite
 
