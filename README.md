@@ -38,7 +38,7 @@ CREATE TABLE users (
 
 ## Configuration
 
-For advanced options (monotonicity, entropy size, etc.) see the [pgx_ulid docs](https://github.com/pksunkara/pgx_ulid#configuration).
+For advanced options (monotonicity, entropy size, etc.) refer to [pgx_ulid](https://github.com/pksunkara/pgx_ulid).
 
 ## Test suite
 
@@ -47,9 +47,6 @@ This project includes a test suite using [pgTAP](https://pgtap.org/) and Docker 
 ```bash
 just test
 ```
-
-This command will build the test containers, run the extension and pgTAP tests defined in the [`tests/`](tests/) directory, and display the results.
-
 
 ## License
 
