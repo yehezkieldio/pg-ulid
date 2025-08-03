@@ -1,4 +1,4 @@
-*
+
 ---
 
 A lightweight PostgreSQL image that ships [`pgx_ulid`](https://github.com/pksunkara/pgx_ulid) extension pre-installed, so you can generate **ULIDs** (Universally-Unique Lexicographically-Sortable Identifiers) immediately after `docker run`.
