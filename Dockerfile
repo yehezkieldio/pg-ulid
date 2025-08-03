@@ -23,11 +23,11 @@ ARG POSTGRESQL_MAJOR
 ARG PGX_ULID_RELEASE
 ARG TARGETARCH
 ENV DEBIAN_FRONTEND=noninteractive
-LABEL org.opencontainers.image.title="pg-ulid"
-LABEL org.opencontainers.image.description="Personal build that ships pgx_ulid pre-built for PostgreSQL ${POSTGRESQL_MAJOR} so ULIDs are ready to use"
-LABEL org.opencontainers.image.version="${PGX_ULID_RELEASE}"
-LABEL org.opencontainers.image.source="https://github.com/${GITHUB_REPOSITORY:-yehezkieldio/pgx_ulid}"
-LABEL org.opencontainers.image.licenses="MIT"
+LABEL org.opencontainers.image.title "pg-ulid"
+LABEL org.opencontainers.image.description "Personal build that ships pgx_ulid pre-built for PostgreSQL ${POSTGRESQL_MAJOR} so ULIDs are ready to use"
+LABEL org.opencontainers.image.version "${PGX_ULID_RELEASE}"
+LABEL org.opencontainers.image.source "https://github.com/${GITHUB_REPOSITORY:-yehezkieldio/pgx_ulid}"
+LABEL org.opencontainers.image.licenses "MIT"
 USER root
 ARG PGX_ULID_DEB="pgx_ulid-v${PGX_ULID_RELEASE}-pg${POSTGRESQL_MAJOR}-${TARGETARCH}-linux-gnu.deb"
 COPY --from=downloader /tmp/${PGX_ULID_DEB} /tmp/${PGX_ULID_DEB}
