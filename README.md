@@ -16,7 +16,8 @@ docker run --name pg-ulid -e POSTGRES_PASSWORD=secret -p 5432:5432 -d ghcr.io/ye
 Connect with any SQL client and:
 
 ```sql
-CREATE EXTENSION ulid;
+-- Enable the pgx_ulid extension
+CREATE EXTENSION IF NOT EXISTS pgx_ulid;
 
 -- Generate a single ULID
 SELECT gen_ulid();
