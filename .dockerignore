@@ -1,3 +1,8 @@
 .github
-README.md
+tests
+
+docker-compose.test.yml
+Dockerfile.test
+justfile
 LICENSE
+README.md

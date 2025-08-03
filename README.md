@@ -1,4 +1,4 @@
-
+*
 ---
 
 A lightweight PostgreSQL image that ships [`pgx_ulid`](https://github.com/pksunkara/pgx_ulid) extension pre-installed, so you can generate **ULIDs** (Universally-Unique Lexicographically-Sortable Identifiers) immediately after `docker run`.
@@ -39,6 +39,17 @@ CREATE TABLE users (
 ## Configuration
 
 For advanced options (monotonicity, entropy size, etc.) see the [pgx_ulid docs](https://github.com/pksunkara/pgx_ulid#configuration).
+
+## Test suite
+
+This project includes a test suite using [pgTAP](https://pgtap.org/) and Docker Compose. To run the tests, use [just](https://just.systems/):
+
+```bash
+just test
+```
+
+This command will build the test containers, run the extension and pgTAP tests defined in the [`tests/`](tests/) directory, and display the results.
+
 
 ## License
 

@@ -41,3 +41,11 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     rm -rf /var/lib/apt/lists/* /tmp/${PGX_ULID_DEB}
 USER postgres
 ENV POSTGRESQL_MAJOR=${POSTGRESQL_MAJOR}
+
+FROM production AS test
+USER root
+RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
+    apt-get update && \
+    apt-get install -y --no-install-recommends postgresql-17-pgtap && \
+    rm -rf /var/lib/apt/lists/*
+USER postgres

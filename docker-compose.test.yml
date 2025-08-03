@@ -1,0 +1,43 @@
+services:
+  pg-ulid-db:
+    container_name: pg-ulid-db
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: test
+      args:
+        POSTGRESQL_MAJOR: 17
+        PGX_ULID_RELEASE: 0.2.0
+        TARGETARCH: amd64
+    image: yehezkieldio/pg-ulid:test
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: testdb
+      POSTGRES_USER: testuser
+      POSTGRES_PASSWORD: testpassword
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U testuser -d testdb"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: "no"
+    deploy:
+      restart_policy:
+        condition: none
+
+  pgtap-runner:
+    container_name: pgtap-runner
+    image: debian:bookworm-slim
+    depends_on:
+      pg-ulid-db:
+        condition: service_healthy
+    environment:
+      PGHOST: pg-ulid-db
+      PGPORT: 5432
+      PGDATABASE: testdb
+      PGUSER: testuser
+      PGPASSWORD: testpassword
+    volumes:
+      - ./tests:/tests
+    command: ["/bin/bash", "-c", "apt-get update && apt-get install -y postgresql-client && psql -f /tests/run_tests.sql"]
